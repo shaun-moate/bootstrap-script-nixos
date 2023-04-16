@@ -27,6 +27,23 @@
 
         font = {
           size = 12.0;
+          normal = {
+            family = "JetBrains\ Mono";
+            style = "Regular";
+          };
+          bold = {
+            family = "JetBrains\ Mono";
+            style = "Bold";
+          };
+          italic = {
+            family = "JetBrains\ Mono";
+            style = "Italic";
+          };
+        };
+
+        offset = {
+          x = 6;
+          y = 6;
         };
       };
     };

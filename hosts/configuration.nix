@@ -66,6 +66,7 @@
 # Font Management
 # -------------------------------------------------------------------------------------------------------------------
   fonts.fonts = with pkgs; [
+    jetbrains-mono                              # niiiiiice
     font-awesome                                # font pack for icons
     source-code-pro                             # default fonts for spacemacs
     powerline                                   # powerline: status line fonts
