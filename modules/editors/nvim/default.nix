@@ -19,11 +19,12 @@
           start = [
             # Syntax Highlighting
             vim-nix
-	    vim-markdown
+	        vim-markdown
 
-	    # Quality of Life
+	        # Quality of Life
             vim-gitgutter                                 # highlight uncommitted changes
-	    vim-floaterm                                  # floating terminal support
+	        vim-floaterm                                  # floating terminal support
+            fzf-vim                                       # fuzzy finding in vim
            ];
         };
         customRC = ''
@@ -46,6 +47,7 @@
 
           " plugins
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/floaterm.vim
+          source ~/code/bootstrap-script/modules/editors/nvim/plugins/fzf.vim
         '';
       };
     };

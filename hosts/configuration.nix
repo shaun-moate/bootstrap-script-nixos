@@ -55,6 +55,8 @@
     systemPackages = with pkgs; [           # Default packages installed system-wide
       ansible                               # Ansible: automation scripting
       gnumake                               # Make: ability to run Makefile's
+      ripgrep                               # ripgrep: improved grep
+      fzf                                   # fzf: the fuzzy finder
 
       #vim
       #git
