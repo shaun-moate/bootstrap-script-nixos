@@ -26,6 +26,7 @@
             vim-gitgutter                                 # highlight uncommitted changes
 	        vim-floaterm                                  # floating terminal support
             fzf-vim                                       # fuzzy finding in vim
+            vim-surround                                  # change parenthesis' quickly
             vim-commentary                                # comment out stuff quickly with `gcc`
            ];
         };
