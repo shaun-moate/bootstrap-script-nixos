@@ -27,8 +27,15 @@
            ];
         };
         customRC = ''
+          " general settings
+          set hidden
+          set title
           set number
-	  set relativenumber
+          set relativenumber
+          set expandtab
+          set shiftwidth=4
+          set tabstop=4
+          set nowrap
 
 	  " vim-floaterm config
           let g:floaterm_keymap_toggle = '<C-t>'
