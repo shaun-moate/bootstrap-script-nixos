@@ -13,7 +13,7 @@
 NIXUSER ?= smoate
 NIXADDR ?= unset
 NIXPORT ?= 22
-NIXHOST ?= phoenix
+NIXHOST ?= virtual-machine
 MAKEFILE_DIR := $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
 
 # -------------------------------------------------------------------------------------------------------------------
@@ -60,31 +60,19 @@ vm/01-bootstrap-copy:
 		$(MAKEFILE_DIR) $(NIXUSER)@$(NIXADDR):/etc/nixos;
 
 # -------------------------------------------------------------------------------------------------------------------
-# vm/SSH - copy ssh keys to virtual machine
-# ++ TODO: replace this with Ansible and Ansible Vault!!!!!!!!
-# -------------------------------------------------------------------------------------------------------------------
-# vm/02-bootstrap-ssh:
-#	rsync -av -e 'ssh -o PubkeyAuthentication=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no' \
-#		--exclude='environment' \
-#		$(HOME)/.ssh/ $(NIXUSER)@$(NIXADDR):~/.ssh
-
-# -------------------------------------------------------------------------------------------------------------------
 # Test - test nix configuration
-# ++ TODO: move bootstrap-script to /home/smoate/code and change below.
 # -------------------------------------------------------------------------------------------------------------------
-#test:
-#	sudo nixos-rebuild test --flake /etc/nixos/bootstrap-script#$(NIXHOST)
+test:
+	sudo nixos-rebuild test --flake ~/code/bootstrap-script#$(NIXHOST)
 
 # -------------------------------------------------------------------------------------------------------------------
 # Build - build (but don't switch to) nix configuration
-# ++ TODO: move bootstrap-script to /home/smoate/code and change below.
 # -------------------------------------------------------------------------------------------------------------------
-#build:
-#	sudo nixos-rebuild build --flake /etc/nixos/bootstrap-script#$(NIXHOST)
+build:
+	sudo nixos-rebuild build --flake ~/code/bootstrap-script#$(NIXHOST)
 
 # -------------------------------------------------------------------------------------------------------------------
 # Switch - update nix configuration
-# ++ TODO: move bootstrap-script to /home/smoate/code and change below.
 # -------------------------------------------------------------------------------------------------------------------
-#switch:
-#	sudo nixos-rebuild switch --flake /etc/nixos/bootstrap-script#$(NIXHOST)
+switch:
+	sudo nixos-rebuild switch --flake ~/code/bootstrap-script#$(NIXHOST)

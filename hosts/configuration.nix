@@ -54,6 +54,7 @@
   environment = {
     systemPackages = with pkgs; [           # Default packages installed system-wide
       ansible                               # Ansible: automation scripting
+      gnumake                               # Make: ability to run Makefile's
 
       #vim
       #git
