@@ -21,11 +21,21 @@
             vim-nix
 	        vim-markdown
 
-	        # Quality of Life
+	        # Git Workflow
             vim-fugitive                                  # git wrapper similar to magit
             vim-gitgutter                                 # highlight uncommitted changes
+
+            # Terminal
 	        vim-floaterm                                  # floating terminal support
+
+            # Status & Tab Lines
+            vim-airline                                   # go to status and tablines
+            vim-airline-themes                            # theme airline
+
+            # File Navigation
             fzf-vim                                       # fuzzy finding in vim
+
+            # Quality of Life
             vim-surround                                  # change parenthesis' quickly
             vim-commentary                                # comment out stuff quickly with `gcc`
            ];
@@ -52,6 +62,7 @@
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/fugitive.vim
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/floaterm.vim
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/fzf.vim
+          source ~/code/bootstrap-script/modules/editors/nvim/plugins/airline.vim
         '';
       };
     };
