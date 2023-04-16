@@ -28,9 +28,10 @@
             # Terminal
 	        vim-floaterm                                  # floating terminal support
 
-            # Status & Tab Lines
+            # Theme'ing
             vim-airline                                   # go to status and tablines
             vim-airline-themes                            # theme airline
+            gruvbox                                       # colour scheme
 
             # File Navigation
             fzf-vim                                       # fuzzy finding in vim
@@ -50,6 +51,10 @@
           set shiftwidth=4
           set tabstop=4
           set nowrap
+
+          " Theme(ing)
+          colorscheme gruvbox
+          set background=dark
 
           " key maps
           let mapleader="\<space>"
