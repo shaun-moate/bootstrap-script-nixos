@@ -55,6 +55,7 @@
           " Theme(ing)
           colorscheme gruvbox
           set background=dark
+          set laststatus=3                             " enforce global status bar (for window splits)
 
           " key maps
           let mapleader="\<space>"
