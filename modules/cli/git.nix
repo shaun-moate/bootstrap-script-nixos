@@ -10,10 +10,12 @@
     git = {
       enable = true;
       config = {
+	user = {
+	  name = "shaun-moate";                  # declare user name
+	  email = "shaun.moate@gmail.com";       # declare email
+	};
         init = {
-          name = "shaun-moate";                # declare user name
-          email = "shaun.moate@gmail.com";     # declare email
-          defaultBranch = "main";              # set `main` as default branch on `git init`
+          defaultBranch = "main";                # set `main` as default branch on `git init`
         };
       };
     };
