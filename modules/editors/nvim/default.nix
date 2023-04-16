@@ -37,15 +37,15 @@
           set tabstop=4
           set nowrap
 
-	  " vim-floaterm config
-          let g:floaterm_keymap_toggle = '<C-t>'
-	  let g:floaterm_gitcommit='floaterm'
-	  let g:floaterm_autoinsert=1
-	  let g:floaterm_width=0.8
-	  let g:floaterm_height=0.8
-	  let g:floaterm_wintitle=0
-	  let g:floaterm_autoclose=1
-	  
+          " key maps
+          let mapleader="\<space>"
+
+          nnoremap <C-c> "+y                           " copy to system clipboard
+          map <C-y> "+p                                " paste from system clipboard
+          map gf :edit <cfile><cr>                     " jump to file
+
+          " plugins
+          source ~/code/bootstrap-script/modules/editors/nvim/plugins/floaterm.vim
         '';
       };
     };
