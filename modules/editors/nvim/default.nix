@@ -22,6 +22,7 @@
 	        vim-markdown
 
 	        # Quality of Life
+            vim-fugitive                                  # git wrapper similar to magit
             vim-gitgutter                                 # highlight uncommitted changes
 	        vim-floaterm                                  # floating terminal support
             fzf-vim                                       # fuzzy finding in vim
@@ -47,6 +48,7 @@
           map gf :edit <cfile><cr>                     " jump to file
 
           " plugins
+          source ~/code/bootstrap-script/modules/editors/nvim/plugins/fugitive.vim
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/floaterm.vim
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/fzf.vim
         '';
