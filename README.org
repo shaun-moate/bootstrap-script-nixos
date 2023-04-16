@@ -1,0 +1,244 @@
+#+title: Bootstrap-Scripts
+
+* Quickstart
+** Prerequisites [0/2]
++ [ ] Have VM Ware Fusion (free for personal use) installed -> [[https://www.vmware.com/uk/products/fusion.html][here]]
+  + note: the link is for Mac... I use Mac.
++ [ ] Download and store NixOS in preferred location -> [[https://nixos.org/download.html][here]]
+  + note: choose 'minimal 64-bit' and I choose to store it in iCloud... I use Mac.
+
+** Initial Boot [0/3]
+Recommended:
++ [ ] Boot into ISO on VMWare [0/3]
+  + [ ] Load ISO into 'New' new virtual machine
+  + [ ] Select 'Other 64-bit' as Operating System (... not sure this matters what you choose)
+  + [ ] Given manner of how we are installing choose 'UEFI' for the Boot Firmware
++ [ ] Customise VM Settings [0/3]
+  + [ ] Processors & Memory: allocate ~8gb RAM
+  + [ ] Optional: add more CPU processors
+  + [ ] Hard Disk: allocate ~64gb
+    + [ ] IMPORTANT: ensure you set Hard Disk type to `NVME`!
++ [ ] Boot into Virtual Machine!
+
+** Step 00: NixOS Minimal Install [0/2]
+Recommended:
++ [ ] Set up using Makefile [0/3]
+  + [ ] Set up the VM for a minimal installation [0/3]
+    + [ ] Log-in as root with `sudo -i`
+    + [ ] Change the root password to 'root', using `passwd`
+    + [ ] Run `ip addr` and note the ip address of the virtual machine
+  + [ ] Set up host machine for minimal install [0/1]
+    + [ ] Set environment variable for ip address:
+    #+begin_src sh
+    export NIXADDR=<insert vm ip>
+    #+end_src
+  + [ ] Start installation process, run:
+    #+begin_src sh
+    NIXUSER=root make vm/00-bootstrap-minimal
+    #+end_src
+
+Secondary Option:
++ [ ] Set up manually [0/4]
+  + [ ] List block storage to know where we are partitioning (usually `nvme`)
+  + [ ] Utilise `gdisk` for partitioning [0/5]
+    + [ ] Log-in as root with `sudo -i`
+    + [ ] Run `gdisk /dev/sda`
+    + [ ] Boot Partition: new partition, +600M, with type = `ef00`
+    + [ ] Root Partition: new partition, all defaults
+    + [ ] Write to disk - DONE!
+  + [ ] Implement file-systems per partition [0/2]
+    + [ ] Set Boot to FAT format: `mkfs.fat -F 32 -n boot /dev/sda1`
+    + [ ] Set Root to EXT4 format: `mkfs.ext4 -L nixos /dev/sda2`
+      + note: labelled my root as 'nixos' in this command
+  + [ ] Mount the partitions [0/3]
+    + [ ] Mount Root: `mount /dev/disk/by-label/nixos /mnt`
+    + [ ] Create Boot Directory: `mkdir /mnt/boot`
+    + [ ] Mount Boot: `mount /dev/disk/by-label/boot /mnt/boot`
+
+** Step 01: Install 'My NixOS Configuration'
+Recommended:
++ [ ] Copy and install configuration [0/3]
+  + [ ] Ensure NIXADDR is exported correctly [0/2]
+    + [ ] On virtual machine: run `ip addr` and note the ip address of the virtual machine
+    + [ ] On host machine: Set environment variable for ip address:
+    #+begin_src sh
+    export NIXADDR=<insert vm ip>
+    #+end_src
+  + [ ] Copy the configurations to the virtual machine
+    #+begin_src sh
+    NIXUSER=root make vm/01-bootstrap-copy
+    #+end_src
+  + [ ] On the virtual machine, complete the installation [0/2]
+    + [ ] Change directory into `bootstrap-script`
+    #+begin_src sh
+    cd /etc/nixos/bootstrap-script
+    #+end_src
+    + [ ] IMPORTANT: Copy `hardward-configuration.nix` to virtual-machine host
+    #+begin_src sh
+    cp /etc/nixos/hardward-configuration.nix /etc/nixos/bootstrap-script/hosts/virtual-machine
+    #+end_src
+    + [ ] Run installation
+    #+begin_src sh
+    nixos-rebuild switch --flake /etc/nixos/bootstrap-script#virtual-machine
+    #+end_src
+    + [ ] Reboot into your new machine!!
+    #+begin_src sh
+    reboot
+    #+end_src
+
+** Step 03: TODO... run ansible to set-up ssh etc.
+
+** Appendix: The Basics
+*** Base Configuration
+**** Imports
++ [ ] Set imports for interpreting nix config:
+#+begin_src nix
+# Imports
+{ config, pkgs, ... }:
+
+ {
+  imports =
+    [
+      ./hardware-configuration.nix
+      ./home.nix
+    ];
+#+end_src
+**** Boot
++ [ ] Add BootLoader:
+#+begin_src nix
+  # BootLoader
+  boot.loader = {
+    systemd-boot.enable = true;
+  };
+#+end_src
+**** Swap Partition
++ [ ] Create a SWAP partition leveraging ZRAM:
+#+begin_src nix
+  # Swap Partition
+  zramSwap = {
+    enable = true;                       # enable ZRAM support
+    memoryPercent = 50;                  # allocate 50% RAM in hard-disk for SWAP
+  };
+#+end_src
+**** Networking
++ [ ] Set networking configurations:
+#+begin_src nix
+  # Networking
+  networking = {
+    hostName = "phoenix";                # set hostname
+    firewall = {
+      enable = false;                    # open all ports as on virtual machine for quality-of-life
+    };
+  };
+  services.openssh = {
+    enable = true;                       # enable ssh... because ssh is good
+    passwordAuthentication = true;       # whether password authentication is allowed.
+    permitRootLogin = "no";              # do not allow root user to ssh into system
+  };
+#+end_src
+**** Internationalisation
++ [ ] Set Timezone: `time.timeZone = "Europe/London";`
+#+begin_src nix
+  # Interationalisation
+  time.timeZone = "Europe/London";       # set local timezone
+  i18n.defaultLocale = "en_GB.UTF-8";    # determine language for program messages, format for date/time and so on.
+  console = {
+    font = "Lat2-Terminus16";            # set tty font and size
+    keyMap = "uk";                       # set tty keyboard mapping to preferred
+  };
+#+end_src
+**** Graphical User Interface
++ [ ] implement i3 as base GUI
+#+begin_src nix
+  # Graphical User Interface
+  hardware.video.hidpi.enable = true;           # expect to run hidpi machines
+
+  services.xserver = {
+    enable = true;                              # enable xserver (required for any gui)
+    resolutions = [ { x = 1920; y = 1080; } ];  # set screen resolution to HD
+    dpi = 220;                                  # force global DPI resolution to use for X server
+    desktopManager = {
+      xterm.enable = false;                     # disable desktop managers
+    };
+    displayManager = {
+      defaultSession = "none+i3";               # only i3
+    };
+    windowManager.i3 = {
+      enable = true;                            # preferred window manager
+      extraPackages = with pkgs; [
+        dmenu
+        i3status
+      ];
+    };
+  };
+#+end_src
+**** System Package(s)
++ [ ] Add system packages
+#+begin_src nix
+  # System Packages
+  environment = {
+    systemPackages = with pkgs; [
+      vim                                # preferred text editor for system
+    ];
+  };
+#+end_src
+**** User(s)
++ [ ] Set-up User
+#+begin_src nix
+  # Users
+  users.users.smoate = {
+    isNormalUser = true;                 # is there a 'non-normal' user?
+    initialPassword = "password";        # set initial password -> change with passwd
+    extraGroups = [ "wheel" ];           # enable user to sudo
+    shell = pkgs.zsh;                    # set zsh as default shell
+    packages = with pkgs; [
+      neovim                             # ultimate text editor
+      firefox                            # default browser for web
+    ];
+  };
+#+end_src
+**** Security
++ [ ] Don't require password for sudo
+#+begin_src
+  # Security
+  security.sudo = {
+    wheelNeedsPassword = false;          # no need for sudo password (we running nix on vm, easy rebuild)
+  };
+#+end_src
+**** Misc.
++ [ ] Add misc. configuration (mainly for quality-of-life):
+#+begin_src nix
+  # Misc.
+  virtualisation = {
+    vmware.guest.enable = true;          # needed for copy-paste between guest/host machines
+  };
+  system = {
+    copySystemConfiguration = true;      # maintain a history of nix configurations (enabling 'generations')
+  };
+#+end_src
+**** Nix Version
++ [ ] Pin Nix Version
+#+begin_src nix
+  # Nix Version (pin)
+  system.stateVersion = "22.11";         # initial version of NixOS installed -> 22.11 == Racoon!
+}
+#+end_src
+** Install Configuration [0/3]
++ [ ] Install NixOS:
+#+begin_src sh
+nixos-install
+#+end_src
++ [ ] Set Root Password (when prompted)
++ [ ] Restart NixOS:
+#+begin_src sh
+reboot
+#+end_src
+** Adjust Configuration [0/2]
++ [ ] Edit Config:
+#+begin_src sh
+vim /etc/nixos/configuration.nix
+#+end_src
++ [ ] Reload & Switch:
+#+begin_src sh
+nixos-rebuild switch
+#+end_src

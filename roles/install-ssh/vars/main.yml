@@ -1,0 +1,8 @@
+---
+ssh_directory: ~/.ssh
+
+src_private_key: id_ed25519
+dest_private_key: ~/.ssh/id_ed25519
+
+src_public_key: id_ed25519.pub
+dest_public_key: ~/.ssh/id_ed25519.pub

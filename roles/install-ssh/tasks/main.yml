@@ -1,0 +1,38 @@
+---
+- name: Check .ssh DIRECTORY exists
+  stat:
+    path: "{{ ssh_directory }}"
+  register: ssh_directory
+- name: Create .ssh DIRECTORY, if doesn't exist
+  file:
+    dest: "{{ dest_private_key | dirname }}"
+    mode: 0700
+    owner: smoate
+    state: directory
+  when: not ssh_directory.stat.exists
+
+
+- name: Check PRIVATE ssh key exists
+  stat:
+    path: "{{ dest_private_key }}"
+  register: ssh_private_key
+- name: Install PRIVATE ssh key, if doesn't exist
+  copy:
+    src: "{{ src_private_key }}"
+    dest: "{{ dest_private_key }}"
+    mode: 0600
+    owner: smoate
+  when: not ssh_private_key.stat.exists
+
+
+- name: Check PUBLIC ssh key exists
+  stat:
+    path: "{{ dest_public_key }}"
+  register: ssh_public_key
+- name: Install PUBLIC ssh key, if doesn't exist
+  copy:
+    src: "{{ src_public_key }}"
+    dest: "{{ dest_public_key }}"
+    mode: 0600
+    owner: smoate
+  when: not ssh_public_key.stat.exists
