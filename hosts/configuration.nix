@@ -52,16 +52,24 @@
 # System Packages (for all users)
 # -------------------------------------------------------------------------------------------------------------------
   environment = {
-    systemPackages = with pkgs; [           # Default packages installed system-wide
-      ansible                               # Ansible: automation scripting
-      gnumake                               # Make: ability to run Makefile's
-      ripgrep                               # ripgrep: improved grep
-      fzf                                   # fzf: the fuzzy finder
-
+    systemPackages = with pkgs; [               
+      ansible                                   # ansible: automation scripting
+      gnumake                                   # make: ability to run Makefile's
+      ripgrep                                   # ripgrep: improved grep
+      fzf                                       # fzf: the fuzzy finder
       #vim
       #git
     ];
   };
+
+# -------------------------------------------------------------------------------------------------------------------
+# Font Management
+# -------------------------------------------------------------------------------------------------------------------
+  fonts.fonts = with pkgs; [
+    font-awesome                                # font pack for icons
+    source-code-pro                             # default fonts for spacemacs
+    powerline                                   # powerline: status line fonts
+  ];
 
 # -------------------------------------------------------------------------------------------------------------------
 # Networking
