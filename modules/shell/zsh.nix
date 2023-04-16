@@ -1,5 +1,5 @@
 # -------------------------------------------------------------------------------------------------------------------
-# modules/shell/Git.nix - oh-my-zsh
+# modules/shell/Zsh.nix - oh-my-zsh
 # -------------------------------------------------------------------------------------------------------------------
 # Author: Shaun Moate
 # Inspired by: https://github.com/mitchellh/nixos-config
@@ -29,8 +29,6 @@
       shellInit = ''                                             # set spaceship as theme
         source ${pkgs.spaceship-prompt}/share/zsh/site-functions/prompt_spaceship_setup
         autoload -U promptinit; promptinit
-
-        ${pkgs.nitch}/bin/nitch                                  # fetch and display system details in terminal
       '';
 
     };
