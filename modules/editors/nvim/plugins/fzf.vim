@@ -9,5 +9,5 @@
 " key maps for vim-fzf
 nmap <leader>f :Files<cr>
 nmap <leader>F :AllFiles<cr>
-nmap <leader>b :Buffers<cr>
+nmap <leader>bb :Buffers<cr>
 nmap <leader>gb :GBranches<cr>

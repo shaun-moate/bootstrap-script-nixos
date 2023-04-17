@@ -1,4 +1,4 @@
-let g:floaterm_keymap_toggle = '<C-t>' 
+let g:floaterm_keymap_toggle = '<space>ot' 
 
 let g:floaterm_gitcommit     = 'floaterm'
 let g:floaterm_autoinsert    = 1

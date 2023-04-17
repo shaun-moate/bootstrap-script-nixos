@@ -64,6 +64,8 @@
           map <C-y> "+p                                " paste from system clipboard
           map gf :edit <cfile><cr>                     " jump to file
 
+          nmap <leader>bk :bd<cr>                      " delete buffer
+
           " plugins
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/fugitive.vim
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/floaterm.vim
