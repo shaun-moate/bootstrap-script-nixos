@@ -15,6 +15,14 @@
         enable = true;
         config = {
           terminal = "alacritty";
+          window = {
+            titlebar = false;
+          };
+          fonts = {
+            names = [ "JetBrains\ Mono" ];
+            style = "Regular";
+            size = 10.0;
+          };
         };
       };
     };
