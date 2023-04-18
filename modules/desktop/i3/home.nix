@@ -23,6 +23,14 @@
             style = "Regular";
             size = 10.0;
           };
+          startup = [
+            {
+              command =
+                "${pkgs.feh}/bin/feh --bg-fill ~/code/bootstrap-script/modules/themes/wallpaper/01.jpg";
+              always = true;
+              notification = false;
+            }
+          ];
         };
       };
     };

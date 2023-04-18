@@ -31,7 +31,7 @@ in
           };
         };
 
-      windowManager= {
+      windowManager = {
         i3 = {                                    # Window Manager
           enable = true;
         };
