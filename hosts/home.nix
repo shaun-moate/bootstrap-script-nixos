@@ -9,7 +9,8 @@
 
 {
   imports =                                   # import all packages
-    (import ../modules/programs);
+    (import ../modules/programs) ++
+    (import ../modules/services);
 
   home = {
     username = "${user}";
