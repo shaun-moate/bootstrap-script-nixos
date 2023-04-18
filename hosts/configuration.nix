@@ -57,6 +57,8 @@
       gnumake                                   # make: ability to run Makefile's
       ripgrep                                   # ripgrep: improved grep
       fzf                                       # fzf: the fuzzy finder
+
+      xclip                                     # xclip: required for nvim copy/paste (see 'Virtualisation' below')
       #vim
       #git
     ];
@@ -155,4 +157,11 @@
 # -------------------------------------------------------------------------------------------------------------------
     stateVersion = "22.05";
   };
+
+# -------------------------------------------------------------------------------------------------------------------
+# Virtualisation - we only run this set up on VMWare and want copy/paste!
+# ++ FIX: added xclip to systemPackages (above) to enable copy/paste on nvim
+# -------------------------------------------------------------------------------------------------------------------
+  virtualisation.vmware.guest.enable = true;
+
 }

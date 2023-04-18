@@ -10,7 +10,7 @@
 {
   programs = {
     neovim = {
-      enable = true;
+      enable = true; 
       viAlias = true;
       vimAlias = true;
 
@@ -59,12 +59,18 @@
 
           " key maps
           let mapleader="\<space>"
-
-          nnoremap <C-c> "+y                           " copy to system clipboard
-          map <C-y> "+p                                " paste from system clipboard
           map gf :edit <cfile><cr>                     " jump to file
-
           nmap <leader>bk :bd<cr>                      " delete buffer
+
+          vnoremap  <leader>y  "*y                     " copy(ing) to system clipboard
+          nnoremap  <leader>Y  "*yg_
+          nnoremap  <leader>y  "*y
+          nnoremap  <leader>yy  "*yy
+
+          nnoremap <leader>p "+p                       " paste(ing) to system clipboard
+          nnoremap <leader>P "+P
+          vnoremap <leader>p "+p
+          vnoremap <leader>P "+P
 
           " plugins
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/fugitive.vim
