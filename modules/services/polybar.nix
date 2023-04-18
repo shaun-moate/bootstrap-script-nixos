@@ -1,5 +1,5 @@
 # -------------------------------------------------------------------------------------------------------------------
-# modules/services/Picom.nix - get me some transparency/opacity
+# modules/services/Polybar.nix - add status bar to desktop
 # -------------------------------------------------------------------------------------------------------------------
 # Author: Shaun Moate
 # Inspired by: https://github.com/mitchellh/nixos-config
@@ -9,11 +9,9 @@
 
 {
   services = {
-    picom = {
+    polybar = {
       enable = true;
-      opacityRules = [                                # Opacity rules if transparency is prefered
-        "95:class_i *= 'Alacritty'"
-      ];                                              # Find with $ xprop | grep "WM_CLASS"
+      script = "polybar bar &";
     };
   };
 }

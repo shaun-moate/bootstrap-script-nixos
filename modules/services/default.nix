@@ -7,4 +7,5 @@
 
 [
   ./picom.nix
+  ./polybar.nix
 ]
