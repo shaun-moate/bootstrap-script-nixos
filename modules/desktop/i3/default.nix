@@ -28,8 +28,14 @@ in
         defaultSession = "none+i3";               # none+i3 -> no real display manager
         lightdm = {
           enable = true;                          # Wallpaper and GTK theme
+          greeters = {
+            slick = {
+              enable = true;
+              theme.name = "Adwaita";
+            };
           };
         };
+      };
 
       windowManager = {
         i3 = {                                    # Window Manager
