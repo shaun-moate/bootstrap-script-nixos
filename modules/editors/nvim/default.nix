@@ -28,6 +28,14 @@
             # Terminal
 	        vim-floaterm                                  # floating terminal support
 
+            # Development
+            nvim-lspconfig                                # native lsp for neovim
+            mason-nvim                                    # lsp install helper
+            mason-lspconfig-nvim                          # recommended lsp support for mason
+            nvim-dap                                      # debug adaptor protocol
+            nvim-lint                                     # linter
+            formatter-nvim                                # formatter
+
             # Theme'ing
             vim-airline                                   # go to status and tablines
             vim-airline-themes                            # theme airline
@@ -61,6 +69,7 @@
           let mapleader="\<space>"
           map gf :edit <cfile><cr>                     " jump to file
           nmap <leader>bk :bd<cr>                      " delete buffer
+          nmap <leader>om :Mason<cr>                   " open mason
 
           vnoremap  <leader>y  "*y                     " copy(ing) to system clipboard
           nnoremap  <leader>Y  "*yg_
@@ -77,6 +86,12 @@
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/floaterm.vim
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/fzf.vim
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/airline.vim
+
+          " language servers
+          luafile ~/code/bootstrap-script/modules/editors/nvim/lua/mason.lua
+          luafile ~/code/bootstrap-script/modules/editors/nvim/lua/mason-lspconfig.lua
+          luafile ~/code/bootstrap-script/modules/editors/nvim/lua/lsp/pyright.lua
+          luafile ~/code/bootstrap-script/modules/editors/nvim/lua/lsp/tsserver.lua
         '';
       };
     };

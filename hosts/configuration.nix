@@ -59,6 +59,8 @@
       fzf                                       # fzf: the fuzzy finder
 
       xclip                                     # xclip: required for nvim copy/paste (see 'Virtualisation' below')
+
+      nodejs                                    # nodejs: install for website development
       #vim
       #git
     ];

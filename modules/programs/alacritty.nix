@@ -26,7 +26,7 @@
         };
 
         font = {
-          size = 12.0;
+          size = 16.0;
           normal = {
             family = "JetBrains\ Mono";
             style = "Regular";
