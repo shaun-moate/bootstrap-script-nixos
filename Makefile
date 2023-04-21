@@ -78,10 +78,11 @@ vm/02-bootstrap-install:
 vm/03-bootstrap-clean-up:
 	ssh -o PubkeyAuthentication=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no \
 		-p${NIXPORT} ${NIXUSER}@${NIXADDR} " \
-			mkdir code; \
-            sudo mv /etc/nixos/bootstrap-script ~/code; \
+            sudo rm -rf /etc/nixos/bootstrap-script; \
             sudo rm /etc/nixos/configuration.nix; \
-			sudo chown -R smoate:users ~/code/bootstrap-script; \
+			mkdir code; \
+            git clone https://github.com/shaun-moate/bootstrap-script.git ~/code/bootstrap-script; \
+            cp /etc/nixos/hardware-configuration.nix ~/code/bootstrap-script/hosts/virtual-machine; \
 			sudo reboot; \
 		"
 
@@ -102,3 +103,4 @@ build:
 # -------------------------------------------------------------------------------------------------------------------
 switch:
 	sudo nixos-rebuild switch --flake ~/code/bootstrap-script#$(NIXHOST)
+
