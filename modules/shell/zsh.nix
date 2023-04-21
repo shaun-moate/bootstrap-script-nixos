@@ -17,7 +17,7 @@
 
       shellAliases = {
         ll = "ls -al";                                           # list all line items with details
-        tn = "~/code/bootstrap-script/bin/tmux-sessionizer";     # create new project in tmux
+        tn = "tmux-sessionizer";                                 # create new project in tmux
       };
 
       ohMyZsh = {
@@ -27,6 +27,8 @@
       histSize = 10000;                                          # max size of 10,000 lines in history
 
       shellInit = ''                                             # set spaceship as theme
+        PATH="$PATH:$HOME/code/bootstrap-script/bin"
+
         source ${pkgs.spaceship-prompt}/share/zsh/site-functions/prompt_spaceship_setup
         autoload -U promptinit; promptinit
       '';

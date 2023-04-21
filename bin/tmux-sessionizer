@@ -1,10 +1,6 @@
 #!/run/current-system/sw/bin/bash
 
-if [[ S# -eq 1 ]]; then
-    project=$1
-else
-    project=$(find ~/code -mindepth 1 -maxdepth 1 -type d | fzf)
-fi
+project=$(find ~/code -mindepth 1 -maxdepth 1 -type d | fzf)
 
 if [[ -z $project ]]; then
     exit 0
