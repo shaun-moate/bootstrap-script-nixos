@@ -22,7 +22,7 @@ MAKEFILE_DIR := $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
 # -------------------------------------------------------------------------------------------------------------------
 vm/00-bootstrap-minimal:
 	ssh -o PubkeyAuthentication=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no \
-		-p${NIXPORT} root@${NIXADDR} " \
+		-p${NIXPORT} ${NIXUSER}@${NIXADDR} " \
 			parted /dev/nvme0n1 -- mklabel gpt; \
 			parted /dev/nvme0n1 -- mkpart primary 600MiB -8GiB; \
 			parted /dev/nvme0n1 -- mkpart primary linux-swap -8GiB 100\%; \
@@ -65,8 +65,8 @@ vm/01-bootstrap-copy:
 # -------------------------------------------------------------------------------------------------------------------
 vm/02-bootstrap-install:
 	ssh -o PubkeyAuthentication=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no \
-		-p${NIXPORT} root@${NIXADDR} " \
-            cp /etc/nixos/hardward-configuration.nix /etc/nixos/bootstrap-script/hosts/virtual-machine \
+		-p${NIXPORT} ${NIXUSER}@${NIXADDR} " \
+            cp /etc/nixos/hardware-configuration.nix /etc/nixos/bootstrap-script/hosts/$(NIXHOST); \
 			nixos-rebuild switch --flake /etc/nixos/bootstrap-script#$(NIXHOST); \
 			reboot; \
 		"
@@ -83,7 +83,6 @@ vm/03-bootstrap-clean-up:
 			mkdir code; \
             git clone https://github.com/shaun-moate/bootstrap-script.git ~/code/bootstrap-script; \
             cp /etc/nixos/hardware-configuration.nix ~/code/bootstrap-script/hosts/virtual-machine; \
-			sudo reboot; \
 		"
 
 # -------------------------------------------------------------------------------------------------------------------
@@ -103,4 +102,5 @@ build:
 # -------------------------------------------------------------------------------------------------------------------
 switch:
 	sudo nixos-rebuild switch --flake ~/code/bootstrap-script#$(NIXHOST)
+
 
