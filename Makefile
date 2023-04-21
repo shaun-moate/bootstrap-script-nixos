@@ -60,16 +60,29 @@ vm/01-bootstrap-copy:
 		$(MAKEFILE_DIR) $(NIXUSER)@$(NIXADDR):/etc/nixos;
 
 # -------------------------------------------------------------------------------------------------------------------
+# vm/Bootstrap-install - run installation
+# ++ action: ensure hard disk on virtual machine set to NVME
+# -------------------------------------------------------------------------------------------------------------------
+vm/02-bootstrap-install:
+	ssh -o PubkeyAuthentication=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no \
+		-p${NIXPORT} root@${NIXADDR} " \
+            cp /etc/nixos/hardward-configuration.nix /etc/nixos/bootstrap-script/hosts/virtual-machine \
+			nixos-rebuild switch --flake /etc/nixos/bootstrap-script#$(NIXHOST); \
+			reboot; \
+		"
+
+# -------------------------------------------------------------------------------------------------------------------
 # vm/Bootstrap-clean-up - finalise installation
 # ++ action: ensure hard disk on virtual machine set to NVME
 # -------------------------------------------------------------------------------------------------------------------
-vm/02-bootstrap-clean-up:
+vm/03-bootstrap-clean-up:
 	ssh -o PubkeyAuthentication=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no \
-		-p${NIXPORT} root@${NIXADDR} " \
+		-p${NIXPORT} ${NIXUSER}@${NIXADDR} " \
 			mkdir code; \
-			git clone https://github.com/shaun-moate/bootstrap-script.git code/bootstrap-script; \
-			sudo nixos-rebuild switch --flake ~/code/bootstrap-script#$(NIXHOST); \
-			reboot; \
+            sudo mv /etc/nixos/bootstrap-script ~/code; \
+            sudo rm /etc/nixos/configuration.nix; \
+			sudo chown -R smoate:users ~/code/bootstrap-script; \
+			sudo reboot; \
 		"
 
 # -------------------------------------------------------------------------------------------------------------------
