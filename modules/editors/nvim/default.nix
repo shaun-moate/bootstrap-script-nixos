@@ -28,7 +28,7 @@
             # Terminal
 	        vim-floaterm                                  # floating terminal support
 
-            # Development
+            # Coding (LSP, linting, formatting)
             nvim-lspconfig                                # native lsp for neovim
             mason-nvim                                    # lsp install helper
             mason-lspconfig-nvim                          # recommended lsp support for mason
