@@ -68,25 +68,50 @@ Recommended:
     #+begin_src sh
     NIXUSER=root make vm/01-bootstrap-copy
     #+end_src
-  + [ ] On the virtual machine, complete the installation [0/2]
-    + [ ] Change directory into `bootstrap-script`
+  + [ ] Install the configuration
     #+begin_src sh
-    cd /etc/nixos/bootstrap-script
+    NIXUSER=root make vm/02-bootstrap-install
     #+end_src
-    + [ ] IMPORTANT: Copy `hardward-configuration.nix` to virtual-machine host
+    + This script does the following
+        + [ ] IMPORTANT: Copy `hardware-configuration.nix` on virtual-machine
+        #+begin_src sh
+        cp /etc/nixos/hardward-configuration.nix /etc/nixos/bootstrap-script/hosts/virtual-machine
+        #+end_src
+        + [ ] Run installation
+        #+begin_src sh
+        nixos-rebuild switch --flake /etc/nixos/bootstrap-script#virtual-machine
+        #+end_src
+        + [ ] Reboot into your new machine!!
+        #+begin_src sh
+        reboot
+        #+end_src
+
+** Step 02: Complete final clean-up
+Recommended:
++ [ ] Copy and install configuration [0/3]
+  + [ ] Ensure NIXADDR is exported correctly [0/2]
+    + [ ] On virtual machine: run `ip addr` and note the ip address of the virtual machine
+    + [ ] On host machine: Set environment variable for ip address:
     #+begin_src sh
-    cp /etc/nixos/hardward-configuration.nix /etc/nixos/bootstrap-script/hosts/virtual-machine
+    export NIXADDR=<insert vm ip>
     #+end_src
-    + [ ] Run installation
+  + [ ] Copy the configurations to the virtual machine
     #+begin_src sh
-    nixos-rebuild switch --flake /etc/nixos/bootstrap-script#virtual-machine
-    #+end_src
-    + [ ] Reboot into your new machine!!
-    #+begin_src sh
-    reboot
+    make vm/01-bootstrap-clean-up
     #+end_src
 
-** Step 03: TODO... run ansible to set-up ssh etc.
+** Step 02: Install SSH Keys and set remote to ssh
+Recommended:
+  + [ ] ON THE GUEST MACHINE as USER: jump into bootstrap-script
+    #+begin_src sh
+    cd ~/code/bootstrap-script
+    #+end_src
+  + [ ] Run the bootstrap.yml ansible
+    #+begin_src sh
+    ansible-playbook bootstrap.yml --ask-vault-pass
+    #+end_src
+
+*** AND............ WE ARE DONE!
 
 ** Appendix: The Basics
 *** Base Configuration
