@@ -60,6 +60,19 @@ vm/01-bootstrap-copy:
 		$(MAKEFILE_DIR) $(NIXUSER)@$(NIXADDR):/etc/nixos;
 
 # -------------------------------------------------------------------------------------------------------------------
+# vm/Bootstrap-clean-up - finalise installation
+# ++ action: ensure hard disk on virtual machine set to NVME
+# -------------------------------------------------------------------------------------------------------------------
+vm/02-bootstrap-clean-up:
+	ssh -o PubkeyAuthentication=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no \
+		-p${NIXPORT} root@${NIXADDR} " \
+			mkdir code; \
+			git clone https://github.com/shaun-moate/bootstrap-script.git code/bootstrap-script; \
+			sudo nixos-rebuild switch --flake ~/code/bootstrap-script#$(NIXHOST); \
+			reboot; \
+		"
+
+# -------------------------------------------------------------------------------------------------------------------
 # Test - test nix configuration
 # -------------------------------------------------------------------------------------------------------------------
 test:
