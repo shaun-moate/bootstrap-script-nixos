@@ -1,0 +1,26 @@
+#!/run/current-system/sw/bin/bash
+
+project=$(find ~/code -mindepth 1 -maxdepth 1 -type d | fzf)
+
+if [[ -z $project ]]; then
+    exit 0
+fi
+
+name=$(basename "$project" | tr . _)
+tmux_check=$(pgrep tmux)
+
+if [[ -z $TMUX ]] && [[ -z $tmux_check ]]; then
+    tmux new-session -s $name -c $project
+    exit 0
+fi
+
+if ! tmux has-session -t=$name 2> /dev/null; then
+    TMUX='' tmux new-session -ds $name -c $project
+fi
+
+if [[ "${TMUX-}" != '' ]];
+then
+    tmux switch-client -t $name;
+fi
+
+tmux attach -t $name

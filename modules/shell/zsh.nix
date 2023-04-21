@@ -17,7 +17,7 @@
 
       shellAliases = {
         ll = "ls -al";                                           # list all line items with details
-        cfn = "vim /etc/nixos/bootstrap-scripts/flake.nix";      # list all line items with details
+        tn = "~/code/bootstrap-script/bin/tmux-sessionizer";     # create new project in tmux
       };
 
       ohMyZsh = {
