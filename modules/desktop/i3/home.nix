@@ -42,6 +42,12 @@
               always = false;
               notification = false;
             }
+            {
+              command =
+                "tmux new-session -d -s bootstrap-script -c ~/code/bootstrap-script;";
+              always = false;
+              notification = false;
+            }
           ];
         };
       };

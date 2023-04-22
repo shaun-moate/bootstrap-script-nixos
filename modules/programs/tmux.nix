@@ -15,6 +15,18 @@
       baseIndex = 1;
       shell = "/run/current-system/sw/bin/zsh";
       disableConfirmationPrompt = true;
+
+      plugins = with pkgs.tmuxPlugins; [
+		{
+		  plugin = dracula;
+		  extraConfig = ''
+		  	set -g @dracula-show-battery false
+		  	set -g @dracula-show-powerline true
+		  	set -g @dracula-refresh-rate 10
+		  '';
+		}
+	  ];
+
       extraConfig = ''
         bind-key Tab display-menu -T "#[align=centre]tmux(ler)" \
           "'... your friendly tmux helper ...'" "" "" \
