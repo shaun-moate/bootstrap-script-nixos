@@ -21,13 +21,11 @@
           bind-key Tab display-menu -T "#[align=centre]tmux(ler)" \
             "'... your friendly tmux helper ...'" "" "" \
             "" \
-            "New Session"             a 'send-keys tn Enter' \
+            "Last Session"                      Tab "switch-client -l" \
+            "Switch Session (choose-tree)"      s   "choose-tree -Zw" \
+            "Switch Session (choose-session)"   S   "choose-session -Zw" \
             "" \
-            "Switch Session (detail)" s 'choose-tree -Zw' \
-            "Switch Session"          S 'choose-session -Zw' \
-            "Last Session"            l 'switch-client -l' \
-            "" \
-            "Exit"                    q 'detach' \
+            "Exit (detach)"                     d   "detach" \
 
         ## COLORSCHEME: gruvbox dark (medium)
           set-option -g status "on"
