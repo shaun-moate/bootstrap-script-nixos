@@ -42,7 +42,8 @@
             gruvbox                                       # colour scheme
 
             # File Navigation
-            fzf-vim                                       # fuzzy finding in vim
+            #fzf-vim                                       # fuzzy finding in vim
+            telescope-nvim                                # fuzzy finding across vim
 
             # Quality of Life
             vim-surround                                  # change parenthesis' quickly
@@ -83,7 +84,8 @@
           " plugins
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/fugitive.vim
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/floaterm.vim
-          source ~/code/bootstrap-script/modules/editors/nvim/plugins/fzf.vim
+          "source ~/code/bootstrap-script/modules/editors/nvim/plugins/fzf.vim
+          source ~/code/bootstrap-script/modules/editors/nvim/plugins/telescope.vim
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/airline.vim
 
           " language servers
