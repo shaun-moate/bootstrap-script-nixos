@@ -48,6 +48,9 @@
             # Quality of Life
             vim-surround                                  # change parenthesis' quickly
             vim-commentary                                # comment out stuff quickly with `gcc`
+
+            # Note-taking
+            vimwiki                                       # simple note-taking plugin
            ];
         };
         customRC = ''
@@ -57,9 +60,14 @@
           set number
           set relativenumber
           set expandtab
-          set shiftwidth=4
-          set tabstop=4
+          set shiftwidth=2
+          set tabstop=2
           set nowrap
+
+          " VimWiki
+          set nocompatible
+          filetype plugin on
+          syntax on
 
           " Theme(ing)
           colorscheme gruvbox
@@ -87,6 +95,7 @@
           "source ~/code/bootstrap-script/modules/editors/nvim/plugins/fzf.vim
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/telescope.vim
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/airline.vim
+          source ~/code/bootstrap-script/modules/editors/nvim/plugins/vimwiki.vim
 
           " language servers
           luafile ~/code/bootstrap-script/modules/editors/nvim/lua/mason.lua

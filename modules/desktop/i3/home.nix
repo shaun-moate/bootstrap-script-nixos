@@ -44,7 +44,7 @@
             }
             {
               command =
-                "tmux new-session -d -s bootstrap-script -c ~/code/bootstrap-script;";
+                "tmux new-session -d -s notes -c ~/code/notes;";
               always = false;
               notification = false;
             }
