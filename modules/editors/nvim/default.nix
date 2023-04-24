@@ -19,14 +19,14 @@
           start = [
             # Syntax Highlighting
             vim-nix
-	        vim-markdown
+	          vim-markdown
 
 	        # Git Workflow
             vim-fugitive                                  # git wrapper similar to magit
             vim-gitgutter                                 # highlight uncommitted changes
 
             # Terminal
-	        vim-floaterm                                  # floating terminal support
+	          vim-floaterm                                  # floating terminal support
 
             # Coding (LSP, linting, formatting)
             nvim-lspconfig                                # native lsp for neovim
