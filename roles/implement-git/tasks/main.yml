@@ -1,0 +1,19 @@
+---
+- name: Change to ssh remote
+  command: git remote set-url origin "{{ bootstrap_url }}"
+
+- name: Check notes exists
+  stat:
+    path: "{{ notes_directory }}"
+  register: notes_directory
+- name: Git clone notes
+  command: git clone "{{ notes_url }}" "{{ notes_directory }}"
+  when: not notes_directory.stat.exists
+
+- name: Check work-notes exists
+  stat:
+    path: "{{ work_notes_directory }}"
+  register: notes_directory
+- name: Git clone work-notes
+  command: git clone "{{ work_notes_url }}" "{{ work_notes_directory }}"
+  when: not notes_directory.stat.exists

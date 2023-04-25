@@ -1,4 +1,0 @@
----
-- name: Change to ssh remote
-  command: git remote set-url origin "{{ bootstrap_url }}"
-
