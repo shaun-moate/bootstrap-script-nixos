@@ -21,7 +21,7 @@
             vim-nix
 	          vim-markdown
 
-	        # Git Workflow
+            # Git Workflow
             vim-fugitive                                  # git wrapper similar to magit
             vim-gitgutter                                 # highlight uncommitted changes
 

@@ -18,6 +18,7 @@
       shellAliases = {
         ll = "ls -al";                                           # list all line items with details
         tn = "tmux-sessionizer";                                 # create new project in tmux
+        ww = "vim index.md";                                     # when in VimWiki directory open the index file (mimics VimWiki key bind <leader>ww)
       };
 
       ohMyZsh = {
