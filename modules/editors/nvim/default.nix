@@ -45,6 +45,7 @@
             #fzf-vim                                       # fuzzy finding in vim
             telescope-nvim                                # fuzzy finding across vim
             minimap-vim                                   # blazingly fast minimap
+            nvim-tree-lua                                 # blazingly fast file navigation
 
             # Quality of Life
             vim-surround                                  # change parenthesis' quickly
@@ -79,6 +80,7 @@
           map gf :edit <cfile><cr>                     " jump to file
           nmap <leader>bk :bd<cr>                      " delete buffer
           nmap <leader>om :Mason<cr>                   " open mason
+          nmap <leader>of :NvimTreeToggle<cr>          " open nvim-tree
 
           vnoremap  <leader>y  "*y                     " copy(ing) to system clipboard
           nnoremap  <leader>Y  "*yg_
@@ -104,6 +106,7 @@
           luafile ~/code/bootstrap-script/modules/editors/nvim/lua/mason-lspconfig.lua
           luafile ~/code/bootstrap-script/modules/editors/nvim/lua/lsp/pyright.lua
           luafile ~/code/bootstrap-script/modules/editors/nvim/lua/lsp/tsserver.lua
+          luafile ~/code/bootstrap-script/modules/editors/nvim/lua/nvim-tree.lua
         '';
       };
     };
