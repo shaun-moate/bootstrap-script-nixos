@@ -79,7 +79,7 @@
           let mapleader="\<space>"
           map gf :edit <cfile><cr>                     " jump to file
           nmap <leader>bk :bd<cr>                      " delete buffer
-          nmap <leader>om :Mason<cr>                   " open mason
+          nmap <leader>ol :Mason<cr>                   " open mason
           nmap <leader>of :NvimTreeToggle<cr>          " open nvim-tree
 
           vnoremap  <leader>y  "*y                     " copy(ing) to system clipboard
