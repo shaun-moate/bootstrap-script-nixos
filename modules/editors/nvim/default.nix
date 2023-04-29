@@ -44,6 +44,7 @@
             # File Navigation
             #fzf-vim                                       # fuzzy finding in vim
             telescope-nvim                                # fuzzy finding across vim
+            minimap-vim                                   # blazingly fast minimap
 
             # Quality of Life
             vim-surround                                  # change parenthesis' quickly
@@ -96,6 +97,7 @@
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/telescope.vim
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/airline.vim
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/vimwiki.vim
+          source ~/code/bootstrap-script/modules/editors/nvim/plugins/minimap.vim
 
           " language servers
           luafile ~/code/bootstrap-script/modules/editors/nvim/lua/mason.lua

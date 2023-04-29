@@ -1,0 +1,6 @@
+let g:working_width = 15
+let g:minimap_auto_start = 0
+let g:minimap_auto_start_win_enter = 0
+let g:minimap_git_colors = 1	
+
+nmap <leader>om :MinimapToggle<cr>
