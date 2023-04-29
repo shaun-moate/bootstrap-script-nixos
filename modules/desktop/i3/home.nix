@@ -44,7 +44,7 @@
             }
             {
               command =
-                "tmux new-session -d -s notes -c ~/code/notes;";
+                "tmux new-session -d -s notes -c ~/personal/notes;";
               always = false;
               notification = false;
             }

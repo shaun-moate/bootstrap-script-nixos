@@ -2,7 +2,7 @@
 bootstrap_url: git@github.com:shaun-moate/bootstrap-script.git
 
 notes_url: git@github.com:shaun-moate/notes.git
-notes_directory: ~/code/notes
+notes_directory: ~/personal/notes
 
 work_notes_url: git@github.com:shaun-moate/work-notes.git
-work_notes_directory: ~/code/work-notes
+work_notes_directory: ~/personal/work-notes

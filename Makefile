@@ -80,9 +80,10 @@ vm/03-bootstrap-clean-up:
 		-p${NIXPORT} ${NIXUSER}@${NIXADDR} " \
             sudo rm -rf /etc/nixos/bootstrap-script; \
             sudo rm /etc/nixos/configuration.nix; \
-			mkdir code; \
+						mkdir code; \
             git clone https://github.com/shaun-moate/bootstrap-script.git ~/code/bootstrap-script; \
             cp /etc/nixos/hardware-configuration.nix ~/code/bootstrap-script/hosts/virtual-machine; \
+						mkdir personal; \
 		"
 
 # -------------------------------------------------------------------------------------------------------------------
