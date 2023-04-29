@@ -61,6 +61,7 @@
       xclip                                     # xclip: required for nvim copy/paste (see 'Virtualisation' below')
 
       nodejs                                    # nodejs: install for website development
+      nodePackages.pnpm                         # pnpm: fast, disk space efficient package manager
       #vim
       #git
     ];
