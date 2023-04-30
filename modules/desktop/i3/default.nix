@@ -21,7 +21,6 @@ in
       enable = true;
 
       layout = "us";                              # Keyboard layout
-      xkbVariant = "altgr-intl";                  # Keyboard layout
       exportConfiguration = true;                 # Keyboard layout
 
       displayManager = {                          # Display Manager
