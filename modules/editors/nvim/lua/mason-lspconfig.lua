@@ -1,5 +1,5 @@
 require("mason-lspconfig").setup({
-    ensure_installed = { "tsserver", "pyright" },
+    ensure_installed = { "lua_ls", "tsserver", "pyright", "tailwindcss" },
     automatic_installation = true
     }
 )

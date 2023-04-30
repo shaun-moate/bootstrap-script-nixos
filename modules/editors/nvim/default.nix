@@ -32,9 +32,6 @@
             nvim-lspconfig                                # native lsp for neovim
             mason-nvim                                    # lsp install helper
             mason-lspconfig-nvim                          # recommended lsp support for mason
-            nvim-dap                                      # debug adaptor protocol
-            nvim-lint                                     # linter
-            formatter-nvim                                # formatter
 
             # Theme'ing
             vim-airline                                   # go to status and tablines
@@ -104,8 +101,13 @@
           " language servers
           luafile ~/code/bootstrap-script/modules/editors/nvim/lua/mason.lua
           luafile ~/code/bootstrap-script/modules/editors/nvim/lua/mason-lspconfig.lua
+          "luafile ~/code/bootstrap-script/modules/editors/nvim/lua/lspconfig.lua
+          luafile ~/code/bootstrap-script/modules/editors/nvim/lua/lsp/lua-ls.lua
           luafile ~/code/bootstrap-script/modules/editors/nvim/lua/lsp/pyright.lua
           luafile ~/code/bootstrap-script/modules/editors/nvim/lua/lsp/tsserver.lua
+          luafile ~/code/bootstrap-script/modules/editors/nvim/lua/lsp/tailwind.lua
+
+          " File Navigation
           luafile ~/code/bootstrap-script/modules/editors/nvim/lua/nvim-tree.lua
         '';
       };
