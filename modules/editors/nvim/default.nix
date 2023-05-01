@@ -33,7 +33,8 @@
             mason-nvim                                    # lsp install helper
             mason-lspconfig-nvim                          # recommended lsp support for mason
             nvim-cmp                                      # autocompletion
-            cmp-nvim-lsp                                  # engine to pass snippets to cmp
+            cmp-nvim-lsp                                  # engine to pass completions to cmp
+            luasnip                                       # engine to pass snippets to cmp
 
             # Theme'ing
             vim-airline                                   # go to status and tablines
