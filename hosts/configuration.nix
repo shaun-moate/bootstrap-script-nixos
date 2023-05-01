@@ -58,11 +58,15 @@
       ripgrep                                   # ripgrep: improved grep
       fzf                                       # fzf: the fuzzy finder
 
+      unzip                                     # unzip: gzippidy-do-da!
+
       xclip                                     # xclip: required for nvim copy/paste (see 'Virtualisation' below')
 
       nodejs                                    # nodejs: install for website development
       nodePackages.pnpm                         # pnpm: fast, disk space efficient package manager
-      #vim
+
+      lua                                       # lua: nvim language for extensibility
+      sumneko-lua-language-server               # FIX: need to manually install as issue with Mason installation
       #git
     ];
   };

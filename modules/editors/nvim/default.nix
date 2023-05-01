@@ -32,6 +32,8 @@
             nvim-lspconfig                                # native lsp for neovim
             mason-nvim                                    # lsp install helper
             mason-lspconfig-nvim                          # recommended lsp support for mason
+            nvim-cmp                                      # autocompletion
+            cmp-nvim-lsp                                  # engine to pass snippets to cmp
 
             # Theme'ing
             vim-airline                                   # go to status and tablines
@@ -99,16 +101,11 @@
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/minimap.vim
 
           " language servers
-          luafile ~/code/bootstrap-script/modules/editors/nvim/lua/mason.lua
-          luafile ~/code/bootstrap-script/modules/editors/nvim/lua/mason-lspconfig.lua
-          "luafile ~/code/bootstrap-script/modules/editors/nvim/lua/lspconfig.lua
-          luafile ~/code/bootstrap-script/modules/editors/nvim/lua/lsp/lua-ls.lua
-          luafile ~/code/bootstrap-script/modules/editors/nvim/lua/lsp/pyright.lua
-          luafile ~/code/bootstrap-script/modules/editors/nvim/lua/lsp/tsserver.lua
-          luafile ~/code/bootstrap-script/modules/editors/nvim/lua/lsp/tailwind.lua
+          luafile ~/code/bootstrap-script/modules/editors/nvim/lua/plugins/lspconfig.lua
+          luafile ~/code/bootstrap-script/modules/editors/nvim/lua/plugins/completions.lua
 
           " File Navigation
-          luafile ~/code/bootstrap-script/modules/editors/nvim/lua/nvim-tree.lua
+          luafile ~/code/bootstrap-script/modules/editors/nvim/lua/plugins/nvim-tree.lua
         '';
       };
     };
