@@ -106,6 +106,7 @@
           luafile ~/code/bootstrap-script/modules/editors/nvim/lua/plugins/completions.lua
 
           " File Navigation
+          luafile ~/code/bootstrap-script/modules/editors/nvim/lua/plugins/telescope.lua
           luafile ~/code/bootstrap-script/modules/editors/nvim/lua/plugins/nvim-tree.lua
         '';
       };
