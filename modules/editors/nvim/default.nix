@@ -81,6 +81,7 @@
           nmap <leader>bk :bd<cr>                      " delete buffer
           nmap <leader>ol :Mason<cr>                   " open mason
           nmap <leader>of :NvimTreeToggle<cr>          " open nvim-tree
+          nmap <leader>tn :FloatermNew tmux-sessionizer<cr>
 
           vnoremap  <leader>y  "*y                     " copy(ing) to system clipboard
           nnoremap  <leader>Y  "*yg_
