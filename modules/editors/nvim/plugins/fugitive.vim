@@ -10,7 +10,6 @@ nnoremap <space>gm :Git move<space>
 nnoremap <space>go :Git checkout<space>
 nnoremap <space>gp :Git grep<space>
 nnoremap <space>gps :Git push<CR>
-test
 nnoremap <space>gpl :Git pull<CR>
 nnoremap <space>gr :Git read<CR>
 nnoremap <space>gs :Git status<CR>
