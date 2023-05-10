@@ -9,9 +9,9 @@ nnoremap <space>gl :silent! Git log<CR>:bot copen<CR>
 nnoremap <space>gm :Git move<space>
 nnoremap <space>go :Git checkout<space>
 nnoremap <space>gp :Git grep<space>
-nnoremap <space>gps git push<CR>
+nnoremap <space>gps :Git push<CR>
 test
-nnoremap <space>gpl git pull<CR>
+nnoremap <space>gpl :Git pull<CR>
 nnoremap <space>gr :Git read<CR>
 nnoremap <space>gs :Git status<CR>
 nnoremap <space>gt :Git commit -v -q %:p<CR>
