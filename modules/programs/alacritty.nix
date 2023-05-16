@@ -28,15 +28,15 @@
         font = {
           size = 16.0;
           normal = {
-            family = "Hack\ Nerd\ Font";
+            family = "JetBrainsMono\ Nerd\ Font";
             style = "Regular";
           };
           bold = {
-            family = "Hack\ Nerd\ Font";
+            family = "JetBrainsMono\ Nerd\ Font";
             style = "Bold";
           };
           italic = {
-            family = "Hack\ Nerd\ Font";
+            family = "JetBrainsMono\ Nerd\ Font";
             style = "Italic";
           };
         };
