@@ -18,6 +18,14 @@
   command: git clone "{{ work_notes_url }}" "{{ work_notes_directory }}"
   when: not notes_directory.stat.exists
 
+- name: Check online-resume exists
+  stat:
+    path: "{{ online_resume_directory }}"
+  register: notes_directory
+- name: Git clone online-resume
+  command: git clone "{{ online_resume_url }}" "{{ online_resume_directory }}"
+  when: not notes_directory.stat.exists
+
 - name: Check nvim-agenda exists
   stat:
     path: "{{ nvim_agenda_directory }}"

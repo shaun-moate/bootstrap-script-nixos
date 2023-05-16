@@ -7,5 +7,8 @@ notes_directory: ~/personal/notes
 work_notes_url: git@github.com:shaun-moate/work-notes.git
 work_notes_directory: ~/personal/work-notes
 
+online_resume_url: git@github.com:shaun-moate/online-resume.git
+online_resume_directory: ~/code/online-resume.git
+
 nvim_agenda_url: git@github.com:shaun-moate/nvim-agenda.git
 nvim_agenda_directory: ~/code/nvim-agenda.git
