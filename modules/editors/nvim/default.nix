@@ -46,6 +46,7 @@
             telescope-nvim                                # fuzzy finding across vim
             minimap-vim                                   # blazingly fast minimap
             nvim-tree-lua                                 # blazingly fast file navigation
+            nvim-web-devicons                             # required tree icons 
 
             # Quality of Life
             vim-surround                                  # change parenthesis' quickly
@@ -73,6 +74,7 @@
 
           " Theme(ing)
           colorscheme gruvbox
+          set guifont=Hack:12
           set laststatus=3                             " enforce global status bar (for window splits)
 
           " key maps
@@ -107,6 +109,7 @@
           luafile ~/code/bootstrap-script/modules/editors/nvim/lua/plugins/completions.lua
 
           " File Navigation
+          luafile ~/code/bootstrap-script/modules/editors/nvim/lua/plugins/nvim-web-devicons.lua
           luafile ~/code/bootstrap-script/modules/editors/nvim/lua/plugins/telescope.lua
           luafile ~/code/bootstrap-script/modules/editors/nvim/lua/plugins/nvim-tree.lua
         '';
