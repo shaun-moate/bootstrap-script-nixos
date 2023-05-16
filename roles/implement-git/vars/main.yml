@@ -6,3 +6,6 @@ notes_directory: ~/personal/notes
 
 work_notes_url: git@github.com:shaun-moate/work-notes.git
 work_notes_directory: ~/personal/work-notes
+
+nvim_agenda_url: git@github.com:shaun-moate/nvim-agenda.git
+nvim_agenda_directory: ~/code/nvim-agenda.git
