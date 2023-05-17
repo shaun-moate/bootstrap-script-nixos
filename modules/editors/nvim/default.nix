@@ -19,7 +19,7 @@
           start = [
             # Syntax Highlighting
             vim-nix
-	          vim-markdown
+            vim-markdown
 
             # Git Workflow
             vim-fugitive                                  # git wrapper similar to magit
@@ -108,15 +108,16 @@
           luafile ~/code/bootstrap-script/modules/editors/nvim/lua/plugins/lspconfig.lua
           luafile ~/code/bootstrap-script/modules/editors/nvim/lua/plugins/completions.lua
 
-          " File Navigation
+          " file Navigation
           luafile ~/code/bootstrap-script/modules/editors/nvim/lua/plugins/nvim-web-devicons.lua
           luafile ~/code/bootstrap-script/modules/editors/nvim/lua/plugins/telescope.lua
           luafile ~/code/bootstrap-script/modules/editors/nvim/lua/plugins/nvim-tree.lua
 
-          " Local plugin development
+          " local plugin development
+          luafile ~/code/bootstrap-script/modules/editors/nvim/lua/plugins/globals.lua
           luafile ~/code/bootstrap-script/modules/editors/nvim/lua/plugins/nvim-agenda.lua
 
-        '';
+       '';
       };
     };
   };
