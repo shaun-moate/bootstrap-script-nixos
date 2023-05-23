@@ -79,6 +79,7 @@
 
           " key maps
           let mapleader="\<space>"
+          nnoremap <leader>x :call utils#save_and_exec()<cr>
           map gf :edit <cfile><cr>                     " jump to file
           nmap <leader>bk :bd<cr>                      " delete buffer
           nmap <leader>ol :Mason<cr>                   " open mason
@@ -114,11 +115,12 @@
           luafile ~/code/bootstrap-script/modules/editors/nvim/lua/plugins/nvim-tree.lua
 
           " local plugin development
+          source ~/code/bootstrap-script/modules/editors/nvim/plugins/utils.vim
           luafile ~/code/bootstrap-script/modules/editors/nvim/lua/plugins/globals.lua
           luafile ~/code/bootstrap-script/modules/editors/nvim/lua/plugins/nvim-agenda.lua
 
-       '';
+         '';
+        };
       };
     };
-  };
-}
+  }
