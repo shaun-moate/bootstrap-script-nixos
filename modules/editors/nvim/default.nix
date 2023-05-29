@@ -21,6 +21,9 @@
             vim-nix
             vim-markdown
 
+            # Preview Tools
+            markdown-preview-nvim                         
+
             # Git Workflow
             vim-fugitive                                  # git wrapper similar to magit
             vim-gitgutter                                 # highlight uncommitted changes
@@ -104,6 +107,7 @@
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/airline.vim
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/vimwiki.vim
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/minimap.vim
+          source ~/code/bootstrap-script/modules/editors/nvim/plugins/markdown-preview.vim
 
           " language servers
           luafile ~/code/bootstrap-script/modules/editors/nvim/lua/plugins/lspconfig.lua
