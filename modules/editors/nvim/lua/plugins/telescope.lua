@@ -17,7 +17,7 @@ require('telescope').setup{
 vim.api.nvim_set_keymap("n", "fb", "<cmd>Telescope buffers<cr>", {})
 vim.api.nvim_set_keymap("n", "fc", "<cmd>Telescope commands<cr>", {})
 vim.api.nvim_set_keymap("n", "fd", "<cmd>Telescope lsp_definitions<cr>", {})
-vim.api.nvim_set_keymap("n", "ff", "<cmd>Telescope find_files<cr>", {})
+vim.api.nvim_set_keymap("n", "ff", "<cmd>Telescope find_files hidden=true<cr>", {})
 vim.api.nvim_set_keymap("n", "fg", "<cmd>Telescope live_grep<cr>", {})
 vim.api.nvim_set_keymap("n", "fh", "<cmd>Telescope help_tags<cr>", {})
 vim.api.nvim_set_keymap("n", "fk", "<cmd>Telescope keymaps<cr>", {})
