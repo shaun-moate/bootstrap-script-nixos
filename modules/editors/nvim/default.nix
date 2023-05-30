@@ -38,6 +38,7 @@
             nvim-cmp                                      # autocompletion
             cmp-nvim-lsp                                  # engine to pass completions to cmp
             luasnip                                       # engine to pass snippets to cmp
+            plenary-nvim                                  # testing framework for local lua development  
 
             # Theme'ing
             vim-airline                                   # go to status and tablines
@@ -82,7 +83,8 @@
 
           " key maps
           let mapleader="\<space>"
-          nnoremap <leader>x :call utils#save_and_exec()<cr>
+          nnoremap <leader>xx :call utils#save_and_exec()<cr>
+          nmap <leader>xt <Plug>PlenaryTestFile
           map gf :edit <cfile><cr>                     " jump to file
           nmap <leader>bk :bd<cr>                      " delete buffer
           nmap <leader>ol :Mason<cr>                   " open mason
@@ -103,7 +105,6 @@
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/fugitive.vim
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/floaterm.vim
           "source ~/code/bootstrap-script/modules/editors/nvim/plugins/fzf.vim
-          source ~/code/bootstrap-script/modules/editors/nvim/plugins/telescope.vim
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/airline.vim
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/vimwiki.vim
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/minimap.vim
