@@ -38,7 +38,6 @@
             nvim-cmp                                      # autocompletion
             cmp-nvim-lsp                                  # engine to pass completions to cmp
             luasnip                                       # engine to pass snippets to cmp
-            plenary-nvim                                  # testing framework for local lua development  
 
             # Theme'ing
             vim-airline                                   # go to status and tablines

@@ -12,3 +12,7 @@ require'nvim-agenda'.setup({
 })
 
 vim.api.nvim_set_keymap("n", "ft", ":AgendaTelescope<CR>", {})
+vim.api.nvim_set_keymap("n", "mtt", ":AgendaToggle to=TODO<CR>", {})
+vim.api.nvim_set_keymap("n", "mtf", ":AgendaToggle to=FOCUS<CR>", {})
+vim.api.nvim_set_keymap("n", "mts", ":AgendaToggle to=SUSPEND<CR>", {})
+vim.api.nvim_set_keymap("n", "mtd", ":AgendaToggle to=DONE<CR>", {})
