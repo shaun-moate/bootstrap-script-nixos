@@ -66,7 +66,7 @@
       nodePackages.pnpm                         # pnpm: fast, disk space efficient package manager
 
       lua                                       # lua: nvim language for extensibility
-      sumneko-lua-language-server               # FIX: need to manually install as issue with Mason installation
+      sumneko-lua-language-server               # lua: lua language server
       luajitPackages.luarocks                   # lua: package manager for lua
       luajitPackages.luacheck                   # lua: linter for lua
       stylua                                    # lua: opinionated styling for lua
