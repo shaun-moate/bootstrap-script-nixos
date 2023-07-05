@@ -57,6 +57,7 @@
 
             # Note-taking
             vimwiki                                       # simple note-taking plugin
+            #orgmode                                       # adding orgmode for vim
            ];
         };
         customRC = ''
@@ -105,15 +106,19 @@
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/floaterm.vim
           "source ~/code/bootstrap-script/modules/editors/nvim/plugins/fzf.vim
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/airline.vim
-          source ~/code/bootstrap-script/modules/editors/nvim/plugins/vimwiki.vim
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/minimap.vim
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/markdown-preview.vim
+
+          " note taking
+          source ~/code/bootstrap-script/modules/editors/nvim/plugins/vimwiki.vim
+          luafile ~/code/bootstrap-script/modules/editors/nvim/lua/plugins/nvim-agenda.lua
+          "luafile ~/code/bootstrap-script/modules/editors/nvim/lua/plugins/org-mode.lua
 
           " language servers
           luafile ~/code/bootstrap-script/modules/editors/nvim/lua/plugins/lspconfig.lua
           luafile ~/code/bootstrap-script/modules/editors/nvim/lua/plugins/completions.lua
 
-          " file Navigation
+          " file navigation
           luafile ~/code/bootstrap-script/modules/editors/nvim/lua/plugins/nvim-web-devicons.lua
           luafile ~/code/bootstrap-script/modules/editors/nvim/lua/plugins/telescope.lua
           luafile ~/code/bootstrap-script/modules/editors/nvim/lua/plugins/nvim-tree.lua
@@ -121,7 +126,6 @@
           " local plugin development
           source ~/code/bootstrap-script/modules/editors/nvim/plugins/utils.vim
           luafile ~/code/bootstrap-script/modules/editors/nvim/lua/plugins/globals.lua
-          luafile ~/code/bootstrap-script/modules/editors/nvim/lua/plugins/nvim-agenda.lua
 
          '';
         };
