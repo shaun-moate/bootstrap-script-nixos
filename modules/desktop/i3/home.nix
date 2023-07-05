@@ -31,20 +31,14 @@
           startup = [
             {
               command =
-                "${pkgs.feh}/bin/feh --bg-fill ~/code/bootstrap-script/modules/themes/wallpaper/01.jpg; \
-                exec --no-startup-id i3-msg 'workspace 1; exec alacritty; workspace 2; exec firefox; workspace 1';";
+              "${pkgs.feh}/bin/feh --bg-fill ~/code/bootstrap-script/modules/themes/wallpaper/01.jpg; \
+                exec --no-startup-id i3-msg 'workspace 1; exec alacritty;';";
               always = true;
               notification = false;
             }
             {
               command =
                 "polybar";
-              always = false;
-              notification = false;
-            }
-            {
-              command =
-                "tmux new-session -d -s notes -c ~/personal/notes;";
               always = false;
               notification = false;
             }

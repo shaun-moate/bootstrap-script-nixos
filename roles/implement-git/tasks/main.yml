@@ -10,6 +10,14 @@
   command: git clone "{{ notes_url }}" "{{ notes_directory }}"
   when: not notes_directory.stat.exists
 
+- name: Check zettelkasten exists
+  stat:
+    path: "{{ zettel_directory }}"
+  register: notes_directory
+- name: Git clone work-notes
+  command: git clone "{{ zettel_url }}" "{{ zettel_directory }}"
+  when: not notes_directory.stat.exists
+
 - name: Check work-notes exists
   stat:
     path: "{{ work_notes_directory }}"

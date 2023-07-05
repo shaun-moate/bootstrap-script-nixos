@@ -70,7 +70,10 @@
       luajitPackages.luarocks                   # lua: package manager for lua
       luajitPackages.luacheck                   # lua: linter for lua
       stylua                                    # lua: opinionated styling for lua
-      #git
+      #git 
+
+      gcc                                       # gcc: required for doom-emacs:org-roam
+      sqlite                                    # sqlite: required for doom-emacs:org-roam
     ];
   };
 

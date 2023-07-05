@@ -7,6 +7,9 @@ notes_directory: ~/personal/notes
 work_notes_url: git@github.com:shaun-moate/work-notes.git
 work_notes_directory: ~/personal/work-notes
 
+zettel_url: git@github.com:shaun-moate/zettelkasten.git
+zettel_directory: ~/personal/zettelkasten
+
 online_resume_url: git@github.com:shaun-moate/online-resume.git
 online_resume_directory: ~/code/online-resume.git
 
