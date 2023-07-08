@@ -20,7 +20,7 @@ in
     xserver = {
       enable = true;
 
-      layout = "gb";                              # Keyboard layout
+      layout = "us";                              # Keyboard layout
       exportConfiguration = true;                 # Keyboard layout
 
       displayManager = {                          # Display Manager

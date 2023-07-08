@@ -3,8 +3,8 @@
 
 (setq doom-theme 'doom-one )
 
-(setq doom-font (font-spec :family "JetBrains Mono" :size 16)
-        doom-big-font (font-spec :famil "JetBrains Mono" :size 24))
+(setq doom-font (font-spec :family "JetBrains Mono" :size 22)
+        doom-big-font (font-spec :famil "JetBrains Mono" :size 28))
 
 (doom/set-frame-opacity 95)
 

@@ -62,6 +62,9 @@
 
       xclip                                     # xclip: required for nvim copy/paste (see 'Virtualisation' below')
 
+      python311                                 # python: the easiest and best language :shrug:
+      poetry                                    # poetry: nixos doesn't like pip -> lets go with poetry for python package manager
+
       nodejs                                    # nodejs: install for website development
       nodePackages.pnpm                         # pnpm: fast, disk space efficient package manager
 
@@ -73,6 +76,8 @@
       #git 
 
       gcc                                       # gcc: required for doom-emacs:org-roam
+      cmake                                     # cmake: required for doom-emacs:vterm
+      libtool                                   # libtool: required for doom-emacs:vterm
       sqlite                                    # sqlite: required for doom-emacs:org-roam
     ];
   };
