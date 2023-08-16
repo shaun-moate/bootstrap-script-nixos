@@ -46,6 +46,9 @@
       EDITOR = "nvim";
       VISUAL = "nvim";
     };
+    sessionVariables = {
+      LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib}/lib";
+    };
   };
 
 # -------------------------------------------------------------------------------------------------------------------
@@ -66,6 +69,7 @@
       python311Packages.tox                     # tox: way to multiple interpreters and virtual-envs
       python310                                 # python 3.10: the easiest and best language :shrug:
       poetry                                    # poetry: nixos doesn't like pip -> lets go with poetry for python package manager
+      graphviz                                  # graphviz: dependency to leverage graphviz in python
 
       nodejs                                    # nodejs: install for website development
       nodePackages.pnpm                         # pnpm: fast, disk space efficient package manager
